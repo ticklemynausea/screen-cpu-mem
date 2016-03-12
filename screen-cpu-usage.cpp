@@ -103,13 +103,13 @@ const float& CPUPercentage::get_percentage()
 
 int main(int argc, char** argv)
 {
-  string meter = "[          ]";
+  string meter = "=           ";
   int meter_count = 0;
   float percentage = 0.0;
   CPUPercentage cpu_per;
   cout.precision(1);
   cout.setf(ios::fixed | ios::right);
-  cout.width(5);
+  //cout.width(5);
   try
   {
   while(true)
@@ -119,7 +119,7 @@ int main(int argc, char** argv)
     meter_count = 1;
     while(meter_count*9.99 < percentage)
       {
-      meter[meter_count] = '|';
+      meter[meter_count] = '=';
       meter_count++;
       }
     while(meter_count <= 10)
@@ -127,9 +127,9 @@ int main(int argc, char** argv)
       meter[meter_count] = ' ';
       meter_count++;
       }
-    cout << meter << ' ';
-    cout.width(5);
-    cout << percentage << endl; 
+    // cout << meter << ' ';
+    // cout.width(5);
+    cout << percentage << '%' << endl; 
     sleep(1);
     }
   }
